@@ -23,6 +23,19 @@ for folder in file_type:
     os.makedirs(os.path.join(DOWNLOAD_PATH, folder), exist_ok=True)
 
 
+log_file = os.path.join(DOWNLOAD_PATH, 'error_log.txt')
+
+
+def log_error(message):
+    """    
+    Logs an error message to a predefined log file.
+    Args:
+    message (str): The error message to be logged.
+    """
+    with open(log_file, 'a', encoding='utf-8') as f:
+        f.write(message + '\n')
+
+
 # look through downloads folders
 for file in os.listdir(DOWNLOAD_PATH):
     file_path = os.path.join(DOWNLOAD_PATH, file)
@@ -32,8 +45,14 @@ for file in os.listdir(DOWNLOAD_PATH):
             if ext in extensions:
                 try:
                     shutil.move(file_path, os.path.join(DOWNLOAD_PATH, folder, file))
-                except Exception as e:
-                    print(f"Error moving file {file}: {e}")
+                except FileNotFoundError:
+                    log_error(f'File Not Found Error: {file}')
+                except PermissionError:
+                    log_error(f'Permission Error: {file}')
+                except shutil.Error as e:
+                    log_error(f'Shutil Error ({e}) with file: {file}')
                 break
+            else:
+                log_error(f'Unsupported file extension for: {file}')
 
-print("Files sorted successfully")
+print("Files sorted successfully. Check error_log.txt for any errors.")
