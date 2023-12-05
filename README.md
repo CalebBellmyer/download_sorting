@@ -28,7 +28,7 @@ This Python script **automatically organizes files** in the Downloads folder int
 3. (Optional) Create an executable:
    ```bash
    pip install pyinstaller
-   pyinstaller --onefile sort.py
+   pyinstaller --onefile --icon=sort_icon.ico sort.py
    ```
 
 ## Usage 
