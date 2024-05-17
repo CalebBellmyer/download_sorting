@@ -9,10 +9,15 @@ import shutil
 
 
 file_type = {
-    'Images': ['.jpg', '.jpeg', '.png', '.svg'],
-    'Videos': ['.mp4', '.avi', '.mov'],
-    'Documents': ['.pdf','.docx', '.txt'],
-    'Executables': ['.exe']
+    'Images': ['.jpg', '.jpeg', '.png', '.svg', '.webp', '.map'],
+    'Videos': ['.mp4', '.avi', '.mov', '.flv', '.mkv', '.wmv', '.webm'],
+    'Documents': ['.pdf','.docx', '.txt', '.doc', '.ppt', '.xls', '.xlsx', '.rtf', '.odt', '.ods', '.odp', '.odg', '.odf'],
+    'Executables': ['.exe', '.msi', '.apk'],
+    'Compressed': ['.zip', '.rar', '.tar', '.gz'],
+    'Music': ['.mp3', '.wav', '.ogg', '.flac', '.alac'],
+    'Programming': ['.py', '.js', '.html', '.css', '.java', '.cpp', '.cs', '.c', '.sql'],
+    'Spreadsheets': ['.xlsx', '.csv', '.ods'],
+    'Presentations': ['.pptx'],
 }
 
 # Path to download folder
