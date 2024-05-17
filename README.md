@@ -65,3 +65,8 @@ The script categorizes files into 'Images', 'Videos', 'Documents', 'Executables'
 ## Customization
 
 Modify the 'file_type' dictionary in the script to change file categories and extensions.
+
+## Creating an Exe file
+
+-   install pyinstaller
+-   run: python3 -m PyInstaller sort.py
